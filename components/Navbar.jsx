@@ -26,7 +26,7 @@ export default function Navbar() {
     ));
 
   return (
-    <header className="flex justify-between items-center px-6 py-4 bg-gray-100">
+    <header className="flex justify-between items-center px-6 py-4 sticky  top-0 z-10 backdrop-blur-md">
       {/* Logo */}
       <div className="text-2xl font-bold">LOGO</div>
 

@@ -1,9 +1,15 @@
 "use client";
-
+import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-import { Card } from "@/components/ui/card";
-import { Star, ArrowLeft, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Card } from "../components/ui/card";
+import {
+  Star,
+  ArrowLeft,
+  ArrowRight,
+  ChevronRight,
+  ChevronLeft,
+} from "lucide-react";
+import { Button } from "../components/ui/button";
 
 const testimonials = [
   {
@@ -106,88 +112,119 @@ export default function TestimonialsSection() {
   }, [isHovered]);
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-12">
-      <div className="space-y-8">
+    <section className="relative max-w-7xl bg-black mx-auto mt-15 px-4 py-12">
+      <div className="absolute z-[0] w-[60%] h-[60%] rounded-full  top-[60%] left-[-60%]  bottom-20 blur-[20rem]  bg-[#C9EB42]   " />
+      <div className=" relative z-[10] space-y-8">
         <div className="grid md:grid-cols-2 gap-8 items-start">
-          <h2 className="lg:text-5xl md:text-5xl text-3xl font-bold tracking-tight">
+          <h2 className="lg:text-5xl md:text-5xl text-3xl font-bold text-white tracking-tight">
             Customers
             <br />
             Feedback
           </h2>
-          <p className="text-xl text-muted-foreground">
+          <p className="text-4xl text-white">
             Helped hundreds of partners, ranging from startups to medium-sized
             businesses to achieve their goals. And stellar feedback — is our
             reward!
           </p>
         </div>
-
-        <div
-          ref={scrollContainerRef}
-          className="relative overflow-hidden"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
+        <div className="grid lg:grid-cols-[300px,1fr] gap-12 items-center">
+          {/* Left section with rating */}
+          <div className="text-white space-y-4">
+            <div className="flex gap-2 mb-8">
+              <div className="bg-[#00B22D] rounded-full p-4">
+                <Image
+                  src="/image/fiverr.png"
+                  alt="Fiverr"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
+                />
+              </div>
+              <div className="bg-[#14A800] rounded-full p-4">
+                <Image
+                  src="/image/up.png"
+                  alt="Upwork"
+                  width={40}
+                  height={40}
+                  className="w-10 h-10"
+                />
+              </div>
+            </div>
+            <h2 className="text-8xl font-bold">4.9</h2>
+            <p className="text-xl leading-relaxed">
+              Upwork & Fiverr average based on 80+ reviews. All chances are
+              you'll be impressed too.
+            </p>
+            <div className="flex justify-start gap-2">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={prevSlide}
+                className="rounded-full  border-white  border bg-transparent  hover:border-none  hover:bg-[#DEFF4E] hover:text-black "
+              >
+                <ArrowLeft className="w-4 h-4" />
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={nextSlide}
+                className="rounded-full  border-white  border bg-transparent hover:border-none hover:bg-[#DEFF4E] hover:text-black "
+              >
+                <ArrowRight className="w-4 h-4" />
+              </Button>
+            </div>
+          </div>
           <div
-            className="flex flex-col sm:flex-col md:flex-row  lg:flex-row  transition-transform duration-500 ease-in-out"
-            style={{
-              transform: `translateX(-${currentIndex * (100 / 3)}%)`,
-            }}
+            ref={scrollContainerRef}
+            className="relative overflow-hidden"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="min-w-[calc(100%/3)] px-3">
-                <Card className="lg:h-[30rem] md:h-[35rem]  sm:h-[20rem] bg-black text-white p-8 mt-10 space-y-6 transition-all duration-300 hover:scale-[1.02]">
-                  <div className="flex items-center gap-1">
-                    <span className="font-semibold">
-                      {testimonial.rating.toFixed(1)}
-                    </span>
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <Star
-                        key={i}
-                        className="w-4 h-4 fill-[#FFAB2B] text-[#FFAB2B]"
+            <div
+              className="flex flex-col sm:flex-col md:flex-row  lg:flex-row  transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translateX(-${currentIndex * (100 / 3)}%)`,
+              }}
+            >
+              {testimonials.map((testimonial, index) => (
+                <div key={index} className="min-w-[calc(100%/3)] px-2">
+                  <Card className="lg:h-[30rem] md:h-[35rem]  sm:h-[20rem] bg-gradient-to-b from-[#090909] via-[#181818] to-[#181818] text-white p-8 mt-2 mb-2 space-y-5 transition-all duration-300 hover:scale-[1.02]">
+                    <div className="flex items-center gap-1">
+                      <span className="font-semibold">
+                        {testimonial.rating.toFixed(1)}
+                      </span>
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <Star
+                          key={i}
+                          className="w-4 h-4 fill-[#FFAB2B] text-[#FFAB2B]"
+                        />
+                      ))}
+                    </div>
+
+                    <p className="text-sm leading-relaxed ">
+                      {testimonial.text}
+                    </p>
+
+                    <div className=" lg:pt-5 md:pt-9  flex items-center gap-3">
+                      <img
+                        src={testimonial.author.avatar}
+                        alt={testimonial.author.name}
+                        className="w-12 h-12 rounded-full object-cover"
                       />
-                    ))}
-                  </div>
-
-                  <p className="text-sm leading-relaxed ">{testimonial.text}</p>
-
-                  <div className=" lg:pt-12 md:pt-9  flex items-center gap-3">
-                    <img
-                      src={testimonial.author.avatar}
-                      alt={testimonial.author.name}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <div className="font-medium">
-                        {testimonial.author.name}
-                      </div>
-                      <div className="text-sm text-gray-400">
-                        {testimonial.author.title}
+                      <div>
+                        <div className="font-medium">
+                          {testimonial.author.name}
+                        </div>
+                        <div className="text-sm text-gray-400">
+                          {testimonial.author.title}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Card>
-              </div>
-            ))}
+                  </Card>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div className="flex justify-end gap-2">
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={prevSlide}
-            className="rounded-full  border-gray-900/50  border bg-transparent  hover:border-none  hover:bg-[#DEFF4E] hover:text-black "
-          >
-            <ArrowLeft className="w-4 h-4" />
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={nextSlide}
-            className="rounded-full  border-gray-900/50  border bg-transparent hover:border-none hover:bg-[#DEFF4E] hover:text-black "
-          >
-            <ArrowRight className="w-4 h-4" />
-          </Button>
         </div>
       </div>
     </section>

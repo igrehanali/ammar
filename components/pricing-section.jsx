@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Button } from "../components/ui/button";
+import { Card, CardContent, CardHeader } from "../components/ui/card";
 import { Check, Circle } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 
 const categories = ["Design", "Web development", "App development"];
 
@@ -157,21 +157,22 @@ export default function PricingSection() {
   };
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-12">
-      <div className="space-y-12">
+    <section className="max-w-7xl mx-auto px-4 py-12">
+      <div className=" relative space-y-12">
+        <div className="absolute z-[0] w-[60%] h-[60%] rounded-full  top-[30%] left-[20%]  bottom-20 blur-[10rem]  bg-[#C9EB42] bg-opacity-50  " />
         <div className="text-center space-y-4">
-          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+          <h2 className="text-4xl md:text-5xl text-white font-bold tracking-tight">
             Discover Products
             <br />
             With the Best Pricing
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-white max-w-2xl mx-auto">
             Design as you know it is out the door. Design as you want it just
             arrived.
           </p>
         </div>
-        <div className="flex justify-center px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex flex-col  md:flex-row lg:flex-row p-2 bg-black rounded-[1rem] lg:rounded-full md:rounded-full">
+        <div className=" relative z-[10] flex justify-center px-4 sm:px-6 lg:px-8">
+          <div className="inline-flex flex-col  md:flex-row lg:flex-row p-2 border border-white bg-[#090909] rounded-[1rem] lg:rounded-full md:rounded-full">
             {categories.map((category) => (
               <Button
                 key={category}
@@ -209,12 +210,12 @@ export default function PricingSection() {
           </div>
         </div> */}
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-1">
           {pricingTiers[selectedCategory].map((tier, index) => (
             <Card
               key={`${tier.name}-${index}`}
               className={cn(
-                "relative bg-black text-white border-0 transition-all duration-300 transform",
+                "relative w-[23rem] bg-gradient-to-r from-[#090909] via-[#181818] to-[#181818] text-white border-0 transition-all duration-300 transform hover:border-white hover:border",
                 isAnimating ? "scale-95 opacity-0" : "scale-100 opacity-100"
               )}
             >
@@ -222,35 +223,40 @@ export default function PricingSection() {
                 <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center">
                   <Circle className="w-4 h-4" />
                 </div>
-                <h3 className="text-xl font-semibold">{tier.name}</h3>
+                <h3 className="text-xl pt-5 font-semibold">{tier.name}</h3>
                 <p className="text-sm text-gray-400">{tier.description}</p>
               </CardHeader>
-              <CardContent className="space-y-6">
+              <CardContent className="space-y-6 pt-5 ">
                 <div className="flex items-baseline">
                   <span className="text-4xl font-bold">{tier.price}</span>
                   <span className="text-sm text-gray-400 ml-1">
                     {tier.period}
                   </span>
                 </div>
-                <Button
-                  className={cn(
-                    "w-full transition-colors duration-300",
-                    tier.highlighted
-                      ? "bg-[#DEFF4E] text-black hover:bg-[#DEFF4E]/90"
-                      : "bg-white/10 hover:bg-white/20"
-                  )}
-                >
-                  Get Started
-                </Button>
-                <div className="space-y-4">
-                  <p className="text-sm font-medium">What you will get</p>
+                <div className="flex flex-row justify-center items-center">
+                  <Button
+                    className={cn(
+                      "w-[19rem] h-[2.7rem]  transition-colors duration-300 rounded-full ",
+                      tier.highlighted
+                        ? "bg-[#DEFF4E] text-black hover:bg-[#DEFF4E]/90"
+                        : "bg-white/10 hover:bg-white/20"
+                    )}
+                  >
+                    Get Started
+                  </Button>
+                </div>
+                <div className="space-y-4 pt-10 ">
+                  <p className="text-lg font-medium">What you will get</p>
                   <ul className="space-y-3">
                     {tier.features.map((feature, i) => (
                       <li
                         key={i}
-                        className="flex items-center gap-2 text-sm text-gray-400"
+                        className="flex items-center gap-2 text-lg text-gray-400"
                       >
-                        <Check className="w-4 h-4 text-gray-400" />
+                        <div className="w-5 h-5 border border-gray-400 rounded-full flex justify-center items-center  ">
+                          <Check className="w-3.5 h-3.5 ] text-gray-400" />
+                        </div>
+
                         {feature}
                       </li>
                     ))}

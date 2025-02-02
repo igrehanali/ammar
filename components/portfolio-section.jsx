@@ -1,18 +1,15 @@
 "use client";
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Button } from "../components/ui/button";
+import { cn } from "../lib/utils";
 
 const categories = [
-  "Wordpress",
   "Webflow",
   "Mobile app",
   "Branding",
-  "Social media",
+
   "Landing pages",
   "Logos",
-  "Blog Graphic",
-  "Brand Guides",
 ];
 
 const portfolioItems = [
@@ -46,9 +43,19 @@ const portfolioItems = [
     image: "/image/project3.png",
     categories: ["Branding", "Logos"],
   },
+  {
+    title: "E-commerce Platform",
+    image: "/image/project2.png",
+    categories: ["Wordpress", "Landing pages"],
+  },
+  {
+    title: "E-commerce Platform",
+    image: "/image/project2.png",
+    categories: ["Wordpress", "Landing pages"],
+  },
 ];
 
-export default function PortfolioSection() {
+export default function PortfolioSection({ text, text2 }) {
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const filteredItems = selectedCategory
@@ -58,17 +65,23 @@ export default function PortfolioSection() {
     : portfolioItems;
 
   return (
-    <section className="max-w-6xl mx-auto px-4 py-12">
+    <section className="relative z-10 max-w-7xl mx-auto px-4 py-12">
       <div className="space-y-8">
-        <div className="space-y-4 text-center">
-          <h2 className="lg:text-7xl md:text-6xl text-5xl font-bold tracking-tight">
-            Apps, websites,
+        <div className="grid md:grid-cols-2 gap-8 items-start">
+          <h2 className="lg:text-7xl text-white md:text-6xl text-5xl font-bold tracking-tight">
+            {text}
+            {/* Project */}
             <br />
-            logos & more
+            {text2}
+            {/* ShowCase */}
           </h2>
+          <p className="text-4xl text-white">
+            Design as you know it is out the door. Design as you want it just
+            arrived.
+          </p>
         </div>
 
-        <div className="flex flex-wrap gap-2 justify-center  max-w-lg items-center mx-auto">
+        <div className="flex flex-wrap gap-2   max-w-lg  ">
           {categories.map((category) => (
             <Button
               key={category}
@@ -87,16 +100,16 @@ export default function PortfolioSection() {
               {category}
             </Button>
           ))}
-          <Button
+          {/* <Button
             variant="outline"
             size="sm"
             className="h-10 rounded-full bg-[#DEFF4E] text-black hover:bg-[#DEFF4E]/80 transition-all duration-300"
           >
             + View more
-          </Button>
+          </Button> */}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-2">
           {filteredItems.map((item, index) => (
             <div
               key={index}

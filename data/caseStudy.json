@@ -1,0 +1,112 @@
+[
+  {
+    "id": 1,
+    "title": "Digital Platform Design",
+    "category": "web-design",
+    "images": "/image/Slide1.svg",
+    "img": "/image/page2.svg",
+    "avatar": "/image/p11.png",
+    "author": "BPN",
+    "height": 18
+  },
+  {
+    "id": 2,
+    "title": "E-commerce Website",
+    "category": "web-design",
+    "images": "/image/Slide1.svg",
+    "img": "/image/page3.svg",
+    "avatar": "/image/p11.png",
+    "author": "John Doe",
+    "height": 17
+  },
+  {
+    "id": 3,
+    "title": "Mobile App UI/UX",
+    "category": "product-design",
+    "images": "/image/Slide1.svg",
+    "img": "/image/page4.svg",
+    "avatar": "/image/p11.png",
+    "author": "Jane Smith",
+    "height": 16
+  },
+  {
+    "id": 4,
+    "title": "Brand Identity",
+    "category": "branding",
+    "images": "/image/Slide1.svg",
+    "img": "/image/page5.svg",
+    "avatar": "/image/p11.png",
+    "author": "Alice Johnson",
+    "height": 14
+  },
+  {
+    "id": 5,
+    "title": "Creative Campaign",
+    "category": "creative-direction",
+    "images": "/image/Slide1.svg",
+    "img": "/image/page6.svg",
+    "avatar": "/image/p11.png",
+    "author": "Bob Brown",
+    "height": 16
+  },
+  {
+    "id": 6,
+    "title": "Corporate Website",
+    "category": "web-design",
+    "images": "/image/Slide1.svg",
+    "img": "/image/page7.svg",
+    "avatar": "/image/p11.png",
+    "author": "Charlie Davis",
+    "height": 14
+  },
+  {
+    "id": 7,
+    "title": "Product Prototype",
+    "category": "product-design",
+    "images": "/image/Slide1.svg",
+    "img": "/image/page8.svg",
+    "avatar": "/image/p11.png",
+    "author": "Dana White",
+    "height": 16
+  },
+  {
+    "id": 8,
+    "title": "Logo Design",
+    "category": "branding",
+    "images": "/image/Slide1.svg",
+    "img": "/image/page9.svg",
+    "avatar": "/image/p11.png",
+    "author": "Eve Black",
+    "height": 14
+  },
+  {
+    "id": 9,
+    "title": "Marketing Strategy",
+    "category": "creative-direction",
+    "images": "/image/Slide1.svg",
+    "img": "/image/page10.svg",
+    "avatar": "/image/p11.png",
+    "author": "Frank Green",
+    "height": 16
+  },
+  {
+    "id": 10,
+    "title": "Portfolio Website",
+    "category": "web-design",
+    "images": "/image/Slide1.svg",
+    "img": "/image/page1.svg",
+    "avatar": "/image/p11.png",
+    "author": "Grace Lee",
+    "height": 14
+  },
+  {
+    "id": 11,
+    "title": "User Experience Design",
+    "category": "product-design",
+    "images": "/image/Slide1.svg",
+    "img": "/image/page1.svg",
+    "avatar": "/image/p11.png",
+    "author": "Hank Miller",
+    "height": 16
+  }
+]
